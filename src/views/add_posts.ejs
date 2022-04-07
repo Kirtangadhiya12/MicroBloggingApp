@@ -1,0 +1,36 @@
+<%- include('layout/header')  %> 
+<div class="container">
+    <div class="row">
+        <h3 class="text-light">Add Post</h3>
+        <form method="post"  action="/add" enctype="multipart/form-data">
+            <div class="container content">
+                <div class="card-div">
+                    <div class="card" >
+                      <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="text" name="title"  placeholder="Text"    class="form-control my-2 p-2" required >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="text" name="description"  placeholder="description" class="form-control my-2 p-2"  required >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-lg-7">
+                        <lable for="image"   class="form-label">Select Image</lable>
+                          <input type="file" name="image"   class="form-control form-control-lg"  required >
+                      </div>
+                  </div>
+                   
+                          
+                        </div>
+                      </div>
+                      <form  >
+                        <button type="submit"   class="btn1 mt-3 mb-5" >Add Post</button>
+                    </form>
+                    </form>
+    </div>
+</div>
+
+<%- include('layout/footer')  %> 
