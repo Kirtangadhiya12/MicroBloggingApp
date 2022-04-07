@@ -1,0 +1,38 @@
+<%- include('layout/header')  %> 
+<div class="container">
+    <div class="row">
+        <h3 class="text-light">Edit Post(<%= post.title  %> )</h3>
+        <form method="post"  action="/update/<%= post._id  %> " enctype="multipart/form-data">
+            <div class="container content">
+                <div class="card-div">
+                    <div class="card" >
+                      <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="text" name="title"  placeholder="Text"    class="form-control my-2 p-2" value="<%= post.title %>" required >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="text" name="description"  placeholder="description" class="form-control my-2 p-2" value="<%= post.description %>"  required >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-lg-7">
+                        <lable for="image"   class="form-label">Select Image</lable>
+                          <input type="file" name="image"   class="form-control form-control-lg"   >
+                          <img src="/<%= post.image %>" width="100" class="img-thumbnail mt-1">
+                      </div>
+                      <input type="hidden" name="old_image" value="<%= post.image %>">
+                  </div>
+                   
+                          
+                        </div>
+                      </div>
+                      <form  >
+                        <button type="submit"   class="btn1 btn-success mt-3 mb-5" >Update Post</button>
+                    </form>
+                    </form>
+    </div>
+</div>
+
+<%- include('layout/footer')  %> 
