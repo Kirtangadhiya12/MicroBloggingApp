@@ -1,0 +1,62 @@
+<%- include('layout/header')  %> 
+<div class="container">
+    <div class="row my-5">
+        <div class="col-lg-12">
+            <% if (message) { %>
+             <div class="alert alert-dimissible fade show alert-<%= message.type   %> "
+            role="alert">
+            <strong><%= message.message  %> </strong>
+            <button  type="button" data-bs-dismiss="alert" aria-lable="Close" class="btn-close "></button>
+            
+            </div>
+            <% } %>
+           
+               <% if (posts!='') { %>
+                <% posts.forEach(element => { %>
+                <div class="container content">
+                    <div class="row justify-content-md-center">
+                    <div class="card mb-5"style="width: 40rem;" >
+                 
+                    
+                        <h5 class="card-title  "><%= element.title  %><a href="/edit/<%= element._id  %> " class="text-success " style="margin-left:400px; margin-right:5px" ><i class="fas fa-edit fa-lg mx-1"></i></a>
+                                    
+                            <a href="/delete/<%= element._id  %> " class="text-danger" ><i class="fas fa-trash fa-lg mx-1"></i></a></h5>
+                        <h5 class="card-title "><%= element.description  %></h5>
+                    
+                     
+                        <img src="<%= element.image  %> " class="card-img-top"  height="250px"width="50px">
+                        <div class="icons">
+                        <a href="/like/<%= element._id  %> " class="text-success ml-15"  ><i class="fa-regular fa-thumbs-up mx-1"></i></a>                        <a href="/dislikes/<%= element._id  %> " class="text-success ml-15"  ><i class="fa-regular fa-thumbs-down"></i></a>
+
+                        <a href="/comments " class="text-success ml-15"  ><i class="fa-regular fa-comment fa-lg mx-1"></i></a>
+                    </div>
+                        <!-- <div class="card-body">
+                          <h5 class="card-title">
+                            
+                            <i method="post" action="/posts/like" class="fa fa-heart-o" style="font-size:24px"></i>
+                            <i class="fa fa-comment-o" style="font-size:28px"></i>
+                          </h5>
+                          <p class="card-text">likes</p>
+                          
+                        </div> -->
+                      </div>
+                      <!-- <div class="comment-section">
+                          <input type="text" class="comment" placeholder="Add a comment...">
+                      </div> -->
+                
+            </div>
+                
+                        
+                        <% }) %>
+                    
+               <% }else{ %>
+
+                <h1 class="text-center text-secondary mt-5">No posts found in the database!</h1>
+                <% } %> 
+               
+           </div>
+        </div>
+    </div>
+</div>
+
+<%- include('layout/footer')  %> 
